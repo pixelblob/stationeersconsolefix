@@ -1,4 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+	
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -14,6 +15,8 @@
     </RestoreAdditionalProjectSources>
     <RootNamespace>ConsolePatch</RootNamespace>
   </PropertyGroup>
+
+	
 
   <ItemGroup>
     <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
@@ -44,4 +47,8 @@
       <HintPath>lib\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
   </ItemGroup>
+  
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy $(OutDir)\ConsolePatch.dll \\minidudemk2\stationeers\BepInEx\plugins" />
+  </Target>
 </Project>
