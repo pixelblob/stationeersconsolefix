@@ -30,7 +30,7 @@ public class Plugin : BaseUnityPlugin
 
         harmony.PatchAll(typeof(Plugin));
         harmony.PatchAll(typeof(RocketSystemConsolePatch));
-        harmony.PatchAll(typeof(GridManagerPatch));
+        //harmony.PatchAll(typeof(GridManagerPatch));
 
     }
 
