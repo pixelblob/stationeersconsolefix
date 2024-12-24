@@ -15,15 +15,8 @@ namespace ConsolePatch.Patches
         {
             Console.WriteLine("--------------------- GridManager.OnApplicationQuit ---------------------");
 
-            Console.WriteLine(!GameManager.IsNewTutorial);
-            Console.WriteLine(!GameManager.IsTutorial);
 
             GameState gameState = GameManager.GameState;
-
-            Console.WriteLine(gameState != GameState.None);
-            Console.WriteLine(gameState != GameState.Loading);
-            Console.WriteLine(gameState);
-            Console.WriteLine(XmlSaveLoad.Instance.SavingWorld);
 
             Console.WriteLine("SAVING");
 
