@@ -2,14 +2,6 @@
 using BepInEx.Logging;
 using HarmonyLib;
 using ConsolePatch.Patches;
-using UnityEngine;
-using System;
-using Assets.Scripts.Serialization;
-using System.Reflection;
-using System.Threading;
-using Assets.Scripts.GridSystem;
-using Assets.Scripts;
-using System.IO;
 
 namespace ConsolePatch;
 
@@ -30,20 +22,5 @@ public class Plugin : BaseUnityPlugin
 
         harmony.PatchAll(typeof(Plugin));
         harmony.PatchAll(typeof(RocketSystemConsolePatch));
-        //harmony.PatchAll(typeof(GridManagerPatch));
-
-    }
-
-    public void SaveCurrent()
-    {
-        MethodInfo writeWorld = typeof(XmlSaveLoad).GetMethod("WriteWorld", BindingFlags.NonPublic | BindingFlags.Instance);
-        FieldInfo _validWordData = typeof(XmlSaveLoad).GetField("_validWordData", BindingFlags.NonPublic | BindingFlags.Instance);
-
-        DirectoryInfo saveDir = XmlSaveLoad.Instance.CurrentWorldSave.Directory();
-        Console.WriteLine(saveDir.ToString());
-
-        _validWordData.SetValue(XmlSaveLoad.Instance, true);
-
-        writeWorld.Invoke(XmlSaveLoad.Instance, [saveDir.ToString(), false, false]);
     }
 }
