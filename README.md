@@ -1,3 +1,3 @@
 Fixes The Error `EntryPointNotFoundException: SetConsoleOutputCP` The Prevented The Console From Being Functional...
 
-[Download Latest Artifact](https://nightly.link/pixelblob/stationeersconsolefix/workflows/dotnet/master/artifact.zip)
+[Download Latest Artifact](https://nightly.link/pixelblob/stationeersconsolefix/workflows/dotnet/master/ConsolePatch.zip)
